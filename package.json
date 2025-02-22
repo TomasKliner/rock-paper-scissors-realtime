@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
+    "server": "bun server/index.ts",
+    "dev-w-server": "next dev & bun server/index.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

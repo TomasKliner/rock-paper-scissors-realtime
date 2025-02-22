@@ -4,7 +4,7 @@ import { io, Socket } from 'socket.io-client';
 const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3001';
 
 // Create a socket instance
-const socket: Socket = io(URL, {
+const Client: Socket = io(URL, {
     autoConnect: true,
     reconnection: true,
     reconnectionAttempts: 5,
@@ -12,14 +12,5 @@ const socket: Socket = io(URL, {
     transports: ['websocket'],
 });
 
-
-socket.on('connect', () => {
-    console.log('Socket connected');
-});
-
-socket.on('disconnect', () => {
-    console.log('Socket disconnected');
-});
-
 // Export the socket instance
-export default socket;
+export default Client;
