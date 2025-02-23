@@ -5,7 +5,7 @@ const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhos
 
 // Create a socket instance
 const Client: Socket = io(URL, {
-    autoConnect: true,
+    autoConnect: false,
     reconnection: true,
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,

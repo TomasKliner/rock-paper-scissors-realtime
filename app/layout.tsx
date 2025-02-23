@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-blue-500 to-blue-700 min-h-screen`}>
         <SocketIoProvider>{children}</SocketIoProvider>
       </body>
     </html>
