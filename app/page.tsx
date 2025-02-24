@@ -1,17 +1,10 @@
 "use client";
 
-import { useContext } from "react";
-import SocketIoContext from "./contexts/socketioContext";
 import { redirect } from "next/navigation";
 
 export default function IndexPage() {
-  //Socket IO client
-  const { client } = useContext(SocketIoContext);
 
   const handleCreateGame = () => {
-    //prepare game client connection
-    client.connect();
-    client.emit("createGame");
     //redirect to game page
     redirect("/game");
   };
