@@ -19,12 +19,12 @@ export default function IndexPage() {
       </div>
       <div className="flex flex-col gap-4">
         <button
-          className="bg-green-500 rounded-xl shadow p-4 font-bold border-b-8 border-r-4 border-green-600"
+          className="bg-green-500 rounded-xl shadow p-4 md:p-8 font-bold border-b-8 border-r-4 border-green-600 text-2xl md:text-4xl hover:bg-green-600 hover:border-green-700 hover:scale-110 transition-all"
           onClick={() => handleCreateGame()}>
           Create new game
         </button>
         <button
-          className="bg-amber-500 rounded-xl shadow p-4 font-bold border-b-8 border-r-4 border-orange-600"
+          className="bg-amber-500 rounded-xl shadow p-4 md:p-8 font-bold border-b-8 border-r-4 border-orange-600 hover:bg-orange-500 hover:border-orange-600 hover:scale-110 text-2xl md:text-4xl transition-all"
           onClick={() => console.log("Join game clicked")}>
           Join game with code
         </button>

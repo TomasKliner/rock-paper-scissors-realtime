@@ -1,7 +1,8 @@
 'use client';
 
+import Game from "@/components/Game";
 import socket from "@/utils/socketio";
-import { useEffect, useState } from "react";
+import { use, useEffect } from "react";
 import { v4 as uuid } from 'uuid';
 
 type Params = {
@@ -10,14 +11,13 @@ type Params = {
 
 type Move = "rock" | "paper" | "scissors" | null;
 
-export default function Page({ params }: { params: Params }) {
-  const { id } = params;
+export default function Page({ params }: { params: Promise<Params> }) {
+  const { id: gameId } = use(params);
   const userId = uuid();
-  
 
   useEffect(() => {
     socket.on("connect", () => {
-      socket.emit("join-game", userId);
+      socket.emit("join-game", {gameId, userId});
     })
 
     socket.on("game-joined", (data) => {
@@ -34,9 +34,9 @@ export default function Page({ params }: { params: Params }) {
   }, []);
 
   return (
-    <div>
-      <h1>Game ID: {id}</h1>
-      <h2>User ID: {userId}</h2>
+    <div className="w-full h-full">
+      <h1 className="text-5xl font-bold text-center w-full">Rock paper scissors</h1>
+      <Game gameId={gameId} userId={userId} />
     </div>
   );
 
